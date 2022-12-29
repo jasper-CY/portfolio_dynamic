@@ -15,19 +15,18 @@
 
 {% for post in posts reversed %}
 
-          <div class="col-lg-4 col-md-6 icon-box " data-aos="fade-up">
-            <div class="col-lg-4" data-aos="fade-right">
-                <img src="{{post.img.url}}" width="300" height="225" class="rounded float-start" alt="no-image" data-aos="fade-right">
-            </div>
-            <br>
-            <div>
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">{{post.title}}</a></h4>
-            <p class="description">{{post.description}}</p>
-            <h6>Post By : <b>{{post.authname}}</b></h6>
-            <h6>Post on : <b>{{post.timeStamp}}</b></h6>
-            </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{{post.img.url}}" style="height: 150px" class="img-fluid" alt="no-image">
           </div>
+          <br>
+            <h3 class="text-start"><a href="">{{post.title}}</a></h3>
+            <p class="text-start">{{post.description}}</p>
+            <h6 class="fst-italic fw-lighter">Posted By : {{post.authname}} </h6>
+            <h6 class="fst-italic fw-lighter">Posted on : {{post.timeStamp}} </h6>
+          </div>
+
 
 {% endfor %}
 
