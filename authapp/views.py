@@ -34,6 +34,7 @@ def signup(request):
 
     return render(request, 'signup.html')
 
+@csrf_exempt
 def handleLogin(request):
     if request.method=="POST":
         get_email = request.POST.get('email')
@@ -48,6 +49,7 @@ def handleLogin(request):
             messages.error(request,"Invalid Credentials")
     return render(request, 'login.html')
 
+@csrf_exempt
 def handleLogout(request):
     logout(request)
     messages.success(request,'logout success')

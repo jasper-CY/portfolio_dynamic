@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from portfolio.models import Contact,Blogs,Internship
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -14,6 +16,7 @@ def about(request):
     return render(request, 'about.html')
 
 
+@csrf_exempt
 def internshipdetails(request):
 
     if not request.user.is_authenticated:
@@ -52,6 +55,8 @@ def internshipdetails(request):
         return redirect('/internshipdetails')
     return render(request, 'intern.html')
 
+
+@csrf_exempt
 def contact(request):
     if request.method=="POST":
         fname = request.POST.get('name')
