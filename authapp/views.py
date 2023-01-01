@@ -2,8 +2,10 @@ from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+@csrf_exempt
 def signup(request):
     if request.method=="POST":
         get_email = request.POST.get('email')
