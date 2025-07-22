@@ -41,11 +41,11 @@ def internshipdetails(request):
 
 
 
-        check1 = Internship.objects.filter(usn=fusn)
-        check2 = Internship.objects.filter(email=femail)
+        check1 = Internship.objects.filter(usn=fusn).exists()
+        check2 = Internship.objects.filter(email=femail).exists()
 
         if check1 or check2:
-            messages.warning(request,"Your Details are Stored Aleardy")
+            messages.warning(request,"Your details are stored already")
             return redirect("/internshipdetails")
 
         query = Internship(fullname=fname, usn=fusn, email=femail, college_name=fcollege, offer_status=foffer,
